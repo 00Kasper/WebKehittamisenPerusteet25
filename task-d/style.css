@@ -1,0 +1,79 @@
+/*
+Author: Kasper Luhtio
+Date: 2025-09-27
+*/
+
+/* ----- Basic layout ----- */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f7f9fb;
+  color: #222;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ----- Element selectors ----- */
+h1 {
+  color: #1a4d8f;
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* ----- ID selector ----- */
+#special-message {
+  color: #e63946;
+  font-weight: bold;
+}
+
+/* ----- Class selectors ----- */
+.box {
+  border: 2px solid #1a4d8f;
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 10px;
+}
+
+.highlight {
+  background-color: #e8f1ff;
+}
+
+/* ----- Group selector ----- */
+h1, h2, h3 {
+  color: #003366;
+  margin-top: 1rem;
+}
+
+/* ----- Descendant selector ----- */
+section ul li {
+  color: #1d3557;
+  list-style-type: square;
+  text-align: left;
+  margin-left: 40%;
+}
+
+/* ----- Attribute selectors ----- */
+a[target="_blank"] {
+  color: #0077cc;
+  font-weight: bold;
+}
+
+a[target="_blank"]:hover {
+  color: #ff6600;
+  text-decoration: underline;
+}
+
+img[alt] {
+  display: block;
+  margin: 20px auto;
+  width: 150px;
+  border-radius: 8px;
+  border: 2px solid #0077cc;
+}

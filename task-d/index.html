@@ -1,0 +1,60 @@
+<!--
+Author: Kasper Luhtio
+Date: 2025-09-27
+-->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Task D – CSS Selectors Practice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>Exploring CSS Selectors</h1>
+    <h2>Understanding How They Work</h2>
+    <h3>Different Types in Action</h3>
+
+    <p>
+      CSS selectors allow us to target and style HTML elements in flexible ways.
+      They make it possible to create structured, visually consistent websites.
+      In this example, I’m testing various selector types including elements, IDs, classes, groups, and attributes.
+    </p>
+
+    <p id="special-message">This paragraph uses an ID selector.</p>
+
+    <div class="box">
+      <h2>Box One</h2>
+      <p>This div uses the <code>.box</code> class to apply specific styles.</p>
+    </div>
+
+    <div class="box highlight">
+      <h2>Box Two</h2>
+      <p>This one has both <code>.box</code> and <code>.highlight</code> classes for combined styling.</p>
+    </div>
+
+    <section>
+      <h2>My Favorite Tools</h2>
+      <ul>
+        <li>Visual Studio Code</li>
+        <li>GitHub</li>
+        <li>W3C Validator</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>External Links and Media</h2>
+      <p>
+        Here’s an example of a link with the <code>target="_blank"</code> attribute:
+        <a href="https://developer.mozilla.org/" target="_blank" rel="noopener">Visit MDN Web Docs</a>
+      </p>
+      <p>
+        Below is an image with an <code>alt</code> attribute to test attribute selectors:
+      </p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HTML5_logo_and_wordmark.svg" 
+           alt="HTML5 official logo">
+    </section>
+  </main>
+</body>
+</html>
