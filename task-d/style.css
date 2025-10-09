@@ -1,79 +1,80 @@
 /*
 Author: Kasper Luhtio
-Date: 2025-09-27
+Date: 2025-10-09
 */
 
-/* ----- Basic layout ----- */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #f7f9fb;
-  color: #222;
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  text-align: center;
   margin: 0;
   padding: 20px;
-  text-align: center;
 }
 
-main {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-/* ----- Element selectors ----- */
+/* Element selectors */
 h1 {
-  color: #1a4d8f;
+  color: #0056b3;
+  font-size: 2em;
 }
 
 p {
-  line-height: 1.6;
+  color: #444;
 }
 
-/* ----- ID selector ----- */
+/* ID selector */
 #special-message {
   color: #e63946;
   font-weight: bold;
 }
 
-/* ----- Class selectors ----- */
+/* Class selectors */
 .box {
-  border: 2px solid #1a4d8f;
-  padding: 15px;
-  margin: 20px 0;
-  border-radius: 10px;
+  background-color: #e0f7fa;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 15px auto;
+  width: 60%;
 }
 
 .highlight {
-  background-color: #e8f1ff;
+  background-color: #fff3cd;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 15px auto;
+  width: 60%;
 }
 
-/* ----- Group selector ----- */
+/* Group selector */
 h1, h2, h3 {
-  color: #003366;
-  margin-top: 1rem;
+  margin-top: 20px;
+  color: #007bff;
 }
 
-/* ----- Descendant selector ----- */
+/* Descendant selector */
 section ul li {
-  color: #1d3557;
   list-style-type: square;
   text-align: left;
-  margin-left: 40%;
+  width: fit-content;
+  margin: auto;
 }
 
-/* ----- Attribute selectors ----- */
+/* Attribute selectors */
 a[target="_blank"] {
   color: #0077cc;
+  text-decoration: none;
   font-weight: bold;
 }
 
 a[target="_blank"]:hover {
-  color: #ff6600;
   text-decoration: underline;
 }
 
 img[alt] {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
   display: block;
   margin: 20px auto;
-  width: 150px;
-  border-radius: 8px;
-  border: 2px solid #0077cc;
 }
+
