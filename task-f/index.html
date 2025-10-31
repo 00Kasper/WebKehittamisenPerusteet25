@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weekly Timetable</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <!--
+    Author: Kasper Luhtio
+    Date: 2025-10-06
+  -->
+
+  <header class="site-header">
+    <h1>Weekly Timetable</h1>
+  </header>
+
+  <main class="content">
+    <div class="top-grid">
+      <!-- Information card -->
+      <section class="card student-info" aria-label="Student information">
+        <h2 class="card-title">Information</h2>
+        <p><span class="muted">Kasper Luhtio</span></p>
+        <p><span class="muted">NTIS24K</span></p>
+      </section>
+
+      <!-- Controls card -->
+      <section class="card controls" aria-label="Add course row">
+        <h2 class="card-title">Add Course</h2>
+
+        <form id="addCourseForm" novalidate>
+          <div class="form-row">
+            <label class="label" for="courseName">Course name</label>
+            <input id="courseName" name="courseName" type="text"
+                   placeholder="e.g., Web Development Basics" autocomplete="off" />
+          </div>
+
+          <fieldset class="days-group">
+            <legend>Days (yes = ✅, no = ❌)</legend>
+            <!-- JS rakentaa Mon–Fri checkboxit THEADista -->
+          </fieldset>
+
+          <div class="btn-row">
+            <button type="submit" class="btn">Add row</button>
+            <button type="reset" class="btn btn-ghost">Clear</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <!-- Table -->
+    <section class="table-card card">
+      <table id="timetable" class="table" aria-describedby="caption">
+        <caption id="caption" class="sr-only">
+          Weekly timetable: use Add row to append courses.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Course</th>
+            <th scope="col">Mon</th>
+            <th scope="col">Tue</th>
+            <th scope="col">Wed</th>
+            <th scope="col">Thu</th>
+            <th scope="col">Fri</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
