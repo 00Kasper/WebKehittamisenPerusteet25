@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Registration Page</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="index.js"></script>
+</head>
+<body>
+  <!-- Author: Kasper Luhtio | Date: 2025-11-07 -->
+
+  <header class="site-header">
+    <h1>Registration Page</h1>
+  </header>
+
+  <main class="content">
+    <section class="controls">
+      <h2>Register new student</h2>
+
+      <form id="registerForm" novalidate>
+        <!-- Hidden timestamp -->
+        <input type="hidden" id="timestamp" name="timestamp">
+
+        <div class="form-row">
+          <label for="fullName">Full name</label>
+          <input type="text" id="fullName" name="fullName" required placeholder="e.g. John Doe">
+          <small class="error-message" id="nameError"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="e.g. john@example.com">
+          <small class="error-message" id="emailError"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required placeholder="+358401234567">
+          <small class="error-message" id="phoneError"></small>
+        </div>
+
+        <div class="form-row">
+          <label for="birth">Birth date</label>
+          <input type="date" id="birth" name="birth" required>
+          <small class="error-message" id="birthError"></small>
+        </div>
+
+        <div class="form-row">
+          <label><input type="checkbox" id="terms" name="terms"> I accept the terms</label>
+          <small class="error-message" id="termsError"></small>
+        </div>
+
+        <div class="form-row">
+          <button type="submit" class="btn">Add row</button>
+          <button type="reset" class="btn btn-secondary">Clear</button>
+        </div>
+      </form>
+    </section>
+
+    <div class="table-wrap">
+      <table class="table" id="dataTable">
+        <thead>
+          <tr>
+            <th>Timestamp</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Birth</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
