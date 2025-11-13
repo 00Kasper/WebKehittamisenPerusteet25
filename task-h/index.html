@@ -1,0 +1,102 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Page – Tailwind</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- JavaScript -->
+  <script defer src="index.js"></script>
+</head>
+
+<body class="bg-slate-100 text-slate-800 font-sans">
+
+  <!-- Header -->
+  <header class="bg-blue-900 text-white py-6 mb-6 shadow">
+    <h1 class="text-2xl text-center font-semibold">Registration Page</h1>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 pb-10">
+
+    <!-- Form container -->
+    <section class="bg-white border border-slate-300 shadow-md rounded-lg p-6 mb-8">
+      <h2 class="text-xl font-bold mb-4">Register New Student</h2>
+
+      <form id="registerForm" novalidate>
+        <input type="hidden" id="timestamp" name="timestamp" />
+
+        <!-- Full name -->
+        <div class="mb-4">
+          <label for="fullName" class="font-medium block mb-1">Full name</label>
+          <input type="text" id="fullName" placeholder="e.g. John Doe"
+            class="w-full border border-slate-300 rounded-md p-2" />
+          <small id="nameError" class="text-red-600 text-sm mt-1 block"></small>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-4">
+          <label for="email" class="font-medium block mb-1">Email</label>
+          <input type="email" id="email" placeholder="e.g. john@example.com"
+            class="w-full border border-slate-300 rounded-md p-2" />
+          <small id="emailError" class="text-red-600 text-sm mt-1 block"></small>
+        </div>
+
+        <!-- Phone -->
+        <div class="mb-4">
+          <label for="phone" class="font-medium block mb-1">Phone</label>
+          <input type="tel" id="phone" placeholder="+358401234567"
+            class="w-full border border-slate-300 rounded-md p-2" />
+          <small id="phoneError" class="text-red-600 text-sm mt-1 block"></small>
+        </div>
+
+        <!-- Birth date -->
+        <div class="mb-4">
+          <label for="birth" class="font-medium block mb-1">Birth date</label>
+          <input type="date" id="birth"
+            class="w-full border border-slate-300 rounded-md p-2" />
+          <small id="birthError" class="text-red-600 text-sm mt-1 block"></small>
+        </div>
+
+        <!-- Terms -->
+        <div class="mb-4 flex items-center gap-2">
+          <input type="checkbox" id="terms" class="h-4 w-4" />
+          <label for="terms">I accept the terms</label>
+        </div>
+        <small id="termsError" class="text-red-600 text-sm block mb-4"></small>
+
+        <!-- Buttons -->
+        <div class="flex gap-2">
+          <button type="submit"
+            class="px-4 py-2 bg-blue-700 text-white rounded-md hover:bg-blue-800">
+            Add row
+          </button>
+
+          <button type="reset"
+            class="px-4 py-2 border rounded-md hover:bg-slate-200">
+            Clear
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Table -->
+    <section class="bg-white border border-slate-300 shadow-md rounded-lg p-4 overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="bg-blue-900 text-white">
+            <th class="text-left p-2">Timestamp</th>
+            <th class="text-left p-2">Name</th>
+            <th class="text-left p-2">Email</th>
+            <th class="text-left p-2">Phone</th>
+            <th class="text-left p-2">Birth</th>
+          </tr>
+        </thead>
+        <tbody id="dataTable"></tbody>
+      </table>
+    </section>
+
+  </main>
+</body>
+</html>
