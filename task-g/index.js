@@ -1,71 +1,94 @@
-// Author: Kasper Luhtio
-// Date: 2025-11-07
-// Handles form validation and table updates
+/*
+Author: Kasper Luhtio
+Date: 2025-11-21
+*/
 
 document.addEventListener("DOMContentLoaded", () => {
+  
   const form = document.getElementById("registerForm");
-  const tableBody = document.querySelector("#dataTable tbody");
-  const timestampInput = document.getElementById("timestamp");
+  const tbody = document.querySelector("#dataTable tbody");
 
-  // Set timestamp automatically on page load
-  timestampInput.value = new Date().toLocaleString();
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    // Clear previous errors
-    document.querySelectorAll(".error-message").forEach(el => el.textContent = "");
-
-    // Get values
-    const name = document.getElementById("fullName").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const birth = document.getElementById("birth").value;
-    const terms = document.getElementById("terms").checked;
+    // Clear earlier errors
+    clearErrors();
 
     let valid = true;
 
-    // ✅ Custom validation rules
-    if (!/^([A-Za-zÀ-ÖØ-öø-ÿ]{2,})\s+([A-Za-zÀ-ÖØ-öø-ÿ]{2,})/.test(name)) {
-      document.getElementById("nameError").textContent = "Please enter your full name (first and last).";
+    // Read values
+    const fullName = form.fullName.value.trim();
+    const email = form.email.value.trim();
+    const phone = form.phone.value.trim();
+    const birth = form.birth.value.trim();
+    const terms = document.getElementById("terms").checked;
+
+    // --------------------------
+    // VALIDATION RULES
+    // --------------------------
+
+    // Full name: at least 2 words, each 2+ letters
+    if (!/^[A-Za-zÅÄÖåäö]{2,}\s+[A-Za-zÅÄÖåäö]{2,}/.test(fullName)) {
+      showError("nameError", "Please enter your full name (first and last).");
       valid = false;
     }
 
-    if (!email.includes("@") || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      document.getElementById("emailError").textContent = "Please enter a valid email address.";
+    // Email: must contain @ and .
+    if (!email.includes("@") || !email.includes(".")) {
+      showError("emailError", "Please enter a valid email address.");
       valid = false;
     }
 
-    if (!/^\+358\d{7,9}$/.test(phone)) {
-      document.getElementById("phoneError").textContent = "Phone must start with +358 and contain 9–12 digits.";
+    // Phone: must start with +358 and contain digits
+    if (!/^\+358\d{7,}$/.test(phone)) {
+      showError("phoneError", "Phone number must start with +358 and contain digits only.");
       valid = false;
     }
 
-    const birthDate = new Date(birth);
-    const today = new Date();
-    if (!birth || birthDate > today) {
-      document.getElementById("birthError").textContent = "Birth date cannot be in the future.";
+    // Birth date: not in the future
+    const today = new Date().toISOString().split("T")[0];
+    if (birth === "" || birth > today) {
+      showError("birthError", "Birth date cannot be in the future.");
       valid = false;
     }
 
+    // Terms checkbox
     if (!terms) {
-      document.getElementById("termsError").textContent = "You must accept the terms.";
+      showError("termsError", "You must accept the terms before submitting.");
       valid = false;
     }
 
+    // --------------------------
+    // STOP if errors exist
+    // --------------------------
     if (!valid) return;
 
-    // ✅ Add new row to table
+    // Create timestamp
+    const timestamp = new Date().toLocaleString();
+
+    // Create table row
     const row = document.createElement("tr");
-    [timestampInput.value, name, email, phone, birth].forEach(val => {
+    [timestamp, fullName, email, phone, birth].forEach((value) => {
       const td = document.createElement("td");
-      td.textContent = val;
+      td.textContent = value;
       row.appendChild(td);
     });
-    tableBody.appendChild(row);
 
-    // Reset form & update timestamp
+    // Add row to table
+    tbody.appendChild(row);
+
+    // Clear form
     form.reset();
-    timestampInput.value = new Date().toLocaleString();
   });
+
+  // --------------------------
+  // Helper functions
+  // --------------------------
+  function showError(id, message) {
+    document.getElementById(id).textContent = message;
+  }
+
+  function clearErrors() {
+    document.querySelectorAll(".error-message").forEach((el) => (el.textContent = ""));
+  }
 });

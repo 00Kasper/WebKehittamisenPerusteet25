@@ -1,6 +1,6 @@
 /*
 Author: Kasper Luhtio
-Date: 2025-11-07
+Date: 2025-11-21
 */
 
 /* COLOR GUIDELINES
@@ -52,7 +52,7 @@ body {
   text-align: center;
 }
 
-/* Content container with side margins */
+/* Content container */
 .content {
   margin-left: 15%;
   margin-right: 15%;
@@ -60,47 +60,58 @@ body {
   padding-bottom: 2rem;
 }
 
-/* Form container */
+/* TOP GRID */
+.top-grid {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.student-info,
 .controls {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 1rem;
+  padding: 0.75rem 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
-  margin-bottom: 1rem;
 }
 
-.controls h2 {
-  margin-top: 0;
-  font-size: 1.2rem;
+.student-info {
+  flex: 1 1 30%;
 }
 
-/* Form layout */
+.controls {
+  flex: 1 1 70%;
+}
+
+.student-info p {
+  margin: 0;
+}
+
+.student-info p + p {
+  margin-top: 0.5rem;
+}
+
+.controls-title,
+.student-info-title {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.1rem;
+}
+
+/* FORM */
 .form-row {
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.75rem;
+  margin: 0.5rem 0;
 }
 
-.form-row label {
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-
-.form-row input[type="text"],
-.form-row input[type="email"],
-.form-row input[type="tel"],
-.form-row input[type="date"] {
+.form-row input {
   padding: 0.45rem 0.6rem;
   border: 1px solid var(--border);
   border-radius: 6px;
-  font-size: 1rem;
 }
 
-.form-row input[type="checkbox"] {
-  margin-right: 0.5rem;
-}
-
+/* Buttons */
 .btn {
   padding: 0.45rem 0.8rem;
   border: 1px solid var(--border);
@@ -117,7 +128,7 @@ body {
   background: #ffffff;
 }
 
-/* Error text style */
+/* ERROR MESSAGES (added for Task G) */
 .error-message {
   color: #b91c1c;
   font-size: 0.85rem;
@@ -125,7 +136,7 @@ body {
   display: block;
 }
 
-/* Table container */
+/* TABLE */
 .table-wrap {
   background: #fff;
   border: 1px solid var(--border);
@@ -135,38 +146,49 @@ body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
 }
 
-/* Table */
 .table {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
 }
 
-/* Header cells */
 .table thead th {
   background: var(--brand);
   color: #fff;
   text-align: left;
   padding: 0.75rem;
-  border-bottom: 1px solid var(--border);
 }
 
-/* Body cells */
 .table tbody td {
   padding: 0.6rem 0.75rem;
   border-bottom: 1px solid var(--border);
 }
 
-/* Alternate row color */
 .table tbody tr:nth-child(even) {
   background: var(--table-alt);
 }
 
-/* Responsive tweaks */
+/* COLUMN SIZES */
+.table thead th:nth-child(1),
+.table tbody td:nth-child(1) {
+  width: 40%;
+}
+
+.table thead th:nth-child(n + 2),
+.table tbody td:nth-child(n + 2) {
+  width: 12%;
+  text-align: center;
+}
+
+/* RESPONSIVE */
 @media (max-width: 860px) {
   .content {
     margin-left: 5%;
     margin-right: 5%;
+  }
+
+  .top-grid {
+    flex-direction: column;
   }
 }
 
@@ -174,5 +196,9 @@ body {
   .content {
     margin-left: 2%;
     margin-right: 2%;
+  }
+
+  .student-info {
+    display: none;
   }
 }
