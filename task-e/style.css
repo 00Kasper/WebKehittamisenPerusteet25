@@ -1,124 +1,118 @@
 /*
-Author: Kasper Luhtio
+Author: <Kasper Luhtio>
 Date: 2025-10-24
 */
- * {
-  box-sizing: border-box;
+
+/* COLOR GUIDELINES 
+:root {
+  --base-size: 1rem;
+  --h1-size: 1.6rem;
+
+  --page-bg: #f6f8fb;      /* very light gray */
+  --text: #1f2937;         /* dark gray */
+  --brand: #273e73;        /* deep blue */
+  --table-alt: #eef3ff;    /* alternating row light blue */
+  --border: #d0d7e2;       /* light gray */
+
+  --radius: 8px;
 }
 
-html, body {
-  height: 100%;
-}
-
+/* Base layout */
+html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-  background: #f7f8fb;
-  color: #0b1226;
-  line-height: 1.6;
+  background: var(--page-bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: var(--base-size);
 }
 
-.content {
-  max-width: 960px;
-  margin-inline: auto;
-  padding: 1.25rem;
-}
-
+/* Header */
 .site-header {
-  background: #0f172a;
-  color: #f8fafc;
-  border-bottom: 1px solid #1f2937;
-  padding: 1rem 0;
-  margin-bottom: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  background: var(--brand);
+  color: #fff;
 }
-
 .site-header h1 {
+  font-size: var(--h1-size);
   margin: 0;
-  font-size: clamp(1.4rem, 2.2vw, 2rem);
   text-align: center;
 }
 
-.intro,
-.student-info,
-.table-wrap,
-.other-content {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 14px;
-  padding: 1rem 1.25rem;
+/* Content wrapper */
+.content {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+}
+
+/* Student info */
+.student-info {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.75rem 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 8px 24px rgba(2, 6, 23, 0.06);
 }
+.student-info p { margin: 0; }
+.student-info p + p { margin-top: 0.5rem; }
 
-.student-info p {
-  margin: .25rem 0;
-  font-size: 1rem;
-}
-
-.student-info strong {
-  color: #0f172a;
-}
-
+/* Table container */
 .table-wrap {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
   overflow-x: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
 }
 
+/* Table itself */
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  overflow: hidden;
+  font-size: 1rem;
+  table-layout: fixed; /* <-- CRUCIAL FOR CORRECT COLUMN WIDTHS */
 }
 
-.table th,
-.table td {
-  width: 16.66%;
-  border: 1px solid #e5e7eb;
-  padding: .65rem .75rem;
-  text-align: center;
-  vertical-align: middle;
-  font-size: 0.98rem;
-}
-
+/* Header cells */
 .table thead th {
-  background: #0f172a;
-  color: #f8fafc;
-  font-weight: 700;
-}
-
-.table thead th:first-child {
+  background: var(--brand);
+  color: #fff;
   text-align: left;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.table tbody td:first-child,
-.table tbody th:first-child {
-  text-align: left;
-  font-weight: 600;
-  color: #0f172a;
-  background: #f8fafc;
+/* Body cells */
+.table tbody td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--border);
 }
 
-.table tbody tr:hover td,
-.table tbody tr:hover th {
-  background: #f1f5f9;
+.table tbody tr:nth-child(even) {
+  background: var(--table-alt);
 }
 
-.table-wrap p {
-  color: #64748b;
-  font-size: .95rem;
-  margin-top: .5rem;
+
+.table thead th:nth-child(1),
+.table tbody td:nth-child(1) {
+  width: 40%;
 }
 
-.table-wrap:focus {
-  outline: 3px solid #38bdf8;
-  outline-offset: 2px;
+.table thead th:nth-child(n+2),
+.table tbody td:nth-child(n+2) {
+  width: calc(60% / 5);
+  text-align: center; 
 }
+
 
 @media (max-width: 768px) {
   .content {
-    margin-inline: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   .site-header,
@@ -135,12 +129,11 @@ body {
 
 @media (max-width: 640px) {
   .content {
-    margin-inline: 1%;
+    margin-left: 1%;
+    margin-right: 1%;
   }
 
   .student-info {
     display: none;
   }
 }
-
-
