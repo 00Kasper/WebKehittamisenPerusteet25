@@ -1,9 +1,9 @@
 /*
-Author: <Kasper Luhtio>
+Author: <YOUR NAME>
 Date: 2025-10-24
 */
 
-/* COLOR GUIDELINES 
+/* COLOR GUIDELINES — per opettaja */
 :root {
   --base-size: 1rem;
   --h1-size: 1.6rem;
@@ -74,7 +74,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   font-size: 1rem;
-  table-layout: fixed; /* <-- CRUCIAL FOR CORRECT COLUMN WIDTHS */
+  table-layout: fixed; 
 }
 
 /* Header cells */
@@ -92,9 +92,11 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
+/* Alternating row color */
 .table tbody tr:nth-child(even) {
   background: var(--table-alt);
 }
+
 
 
 .table thead th:nth-child(1),
@@ -105,7 +107,7 @@ body {
 .table thead th:nth-child(n+2),
 .table tbody td:nth-child(n+2) {
   width: calc(60% / 5);
-  text-align: center; 
+  text-align: center; /* Center weekdays */
 }
 
 
