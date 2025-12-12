@@ -2,7 +2,6 @@
    Author: Kasper Luhtio
    Date: 2025-11-21
    PrimeDrive – Premium Car Rental CSS
-   Tasks I–K (FULL & STABLE)
    ============================================= */
 
 /* COLOR PALETTE */
@@ -283,7 +282,7 @@ form textarea {
   font-size: 1rem;
 }
 
-/* CHECKBOX ALIGNMENT (FINAL FIX) */
+/* CHECKBOX */
 .checkbox-row {
   display: flex;
   align-items: center;
