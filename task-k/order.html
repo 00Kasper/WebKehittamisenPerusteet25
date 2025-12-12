@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Author: Kasper Luhtio | Task K | 2025-11-25 -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrimeDrive — Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER (same as Task I & J) -->
+  <header class="site-header">
+    <h1>PrimeDrive</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="catalog.html">Catalog</a>
+      <a href="order.html">Order</a>
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <!-- INTRO -->
+    <section class="about">
+      <h2 class="section-title">Request a Rental</h2>
+      <p>
+        Fill in the form below to request your rental.  
+        We will contact you shortly to confirm availability and details.
+      </p>
+    </section>
+
+    <!-- ORDER FORM -->
+    <section>
+      <h2 class="section-title">Rental Order Form</h2>
+
+      <form action="#" method="post">
+
+        <!-- CUSTOMER INFO -->
+        <fieldset>
+          <legend><strong>Customer Information</strong></legend>
+
+          <label for="fullname">Full name</label>
+          <input id="fullname" name="fullname" type="text" required>
+
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" required>
+
+          <label for="phone">Phone number</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="+358401234567"
+            required>
+        </fieldset>
+
+        <!-- RENTAL DETAILS -->
+        <fieldset>
+          <legend><strong>Rental Details</strong></legend>
+
+          <label for="item">Car to rent</label>
+          <select id="item" name="item" required>
+            <option value="">Choose a car</option>
+            <option>Sport Sedan</option>
+            <option>Luxury Coupe</option>
+            <option>Premium SUV</option>
+            <option>Electric Car</option>
+            <option>City Compact</option>
+            <option>Convertible Roadster</option>
+          </select>
+
+          <label for="start">Start date</label>
+          <input id="start" name="start" type="date" required>
+
+          <label for="end">End date</label>
+          <input id="end" name="end" type="date" required>
+
+          <label for="quantity">Quantity</label>
+          <input
+            id="quantity"
+            name="quantity"
+            type="number"
+            min="1"
+            max="5"
+            value="1">
+        </fieldset>
+
+        <!-- ADDITIONAL INFO -->
+        <fieldset>
+          <legend><strong>Additional Information</strong></legend>
+
+          <label for="message">Message / special wishes</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="terms" required>
+            <label for="terms">
+              I accept the rental terms and privacy policy
+            </label>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" id="newsletter">
+            <label for="newsletter">
+              Subscribe to newsletter
+            </label>
+          </div>
+        </fieldset>
+
+        <!-- SUBMIT -->
+        <div class="cta">
+          <button type="submit" class="cta-btn">
+            Submit rental request
+          </button>
+        </div>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 PrimeDrive — Premium Car Rentals</p>
+  </footer>
+
+</body>
+</html>
+
+
